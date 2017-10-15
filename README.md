@@ -8,7 +8,7 @@ TO RUN LOCALLY:
   CD into Server folder
     - In terminal type npm install
     
-   CD into client folder
+  CD into client folder
     - In terminal type npm install
     
     
