@@ -4,8 +4,18 @@ body {
     font-family: sans-serif;
   
   }
-  
-  #map{
-    height: 30em;
-    width: 40em;
+  footer.page-footer {
+    background-color: black;
+    margin-top: 0;
+}
+  .page-footer{
+    background-color:black;
+    color:white
+  }
+  .page-footer a {
+    text-decoration: none;
+    color:white;
+  }
+  .page-footer ul {
+    list-style-type: none;
   }

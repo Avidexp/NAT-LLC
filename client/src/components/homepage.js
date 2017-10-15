@@ -81,52 +81,40 @@ class Homepage extends Component {
                 <p>Designed for greatness.</p>
               </div>
 
+              
               <hr className='w-100 clearfix d-sm-none' />
-
               <div className='col-lg-2 col-md-6 ml-auto'>
                 <h5 className='title mb-3'><strong>First column</strong></h5>
                 <ul>
-                  <li><a href='#!'>Link 1</a></li>
-                  <li><a href='#!'>Link 2</a></li>
-                  <li><a href='#!'>Link 3</a></li>
-                  <li><a href='#!'>Link 4</a></li>
+                  <li className='nav-item'><a href='/'>Home</a></li>
+                  <li className='nav-item'><a href='/signup'>Sign Up</a></li>
+                  <li className='nav-item'><a href='/signin'>Sign In</a></li>
+                  <li className='nav-item'><a href='/signout'>Sign Out</a></li>
                 </ul>
               </div>
 
-              <hr className='w-100 clearfix d-sm-none' />
 
               <div className='col-lg-2 col-md-6 ml-auto'>
                 <h5 className='title mb-3'><strong>Second column</strong></h5>
                 <ul>
-                  <li><a href='#!'>Link 1</a></li>
-                  <li><a href='#!'>Link 2</a></li>
-                  <li><a href='#!'>Link 3</a></li>
-                  <li><a href='#!'>Link 4</a></li>
-                </ul>
+                <li className='nav-item'><a href='/'>Home</a></li>
+                <li className='nav-item'><a href='/signup'>Sign Up</a></li>
+                <li className='nav-item'><a href='/signin'>Sign In</a></li>
+                <li className='nav-item'><a href='/signout'>Sign Out</a></li>
+              </ul>
               </div>
 
-              <hr className='w-100 clearfix d-sm-none' />
 
               <div className='col-lg-2 col-md-6 ml-auto'>
                 <h5 className='title mb-3'><strong>Third column</strong></h5>
                 <ul>
-                  <li><a href='#!'>Link 1</a></li>
-                  <li><a href='#!'>Link 2</a></li>
-                  <li><a href='#!'>Link 3</a></li>
-                  <li><a href='#!'>Link 4</a></li>
-                </ul>
+                <li className='nav-item'><a href='/'>Home</a></li>
+                <li className='nav-item'><a href='/signup'>Sign Up</a></li>
+                <li className='nav-item'><a href='/signin'>Sign In</a></li>
+                <li className='nav-item'><a href='/signout'>Sign Out</a></li>
+              </ul>
               </div>
             </div>
-          </div>
-
-          <hr />
-
-          <div className='call-to-action'>
-            <h4>Guide Trip</h4>
-            <ul>
-              <li><h5>Sign Up For Free</h5></li>
-              <li><a target='_blank' href='/' className='btn rounded waves-effect red' rel='nofollow'>Sign up!</a></li>
-            </ul>
           </div>
           <div className='footer-copyright'>
             <div className='container-fluid'>

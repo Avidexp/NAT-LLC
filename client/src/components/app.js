@@ -8,6 +8,7 @@ import Feature from './feature';
 import RequireAuth from './auth/require_auth';
 import Homepage from './homepage';
 import Dashboard from './dashboard';
+import '../index.css';
 // import Tripbuild from './tripbuild';
 // import Tripresults from './tripresults';
 // import Places from './places';
