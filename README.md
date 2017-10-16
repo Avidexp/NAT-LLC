@@ -11,7 +11,10 @@ TO RUN LOCALLY:
   CD into client folder
     - In terminal type npm install
     
-    
-    open 2 ternimal tabs
+  CD into chat_api
+    -in terminal type npm install
+    -in terminal type npm start 
+
+    open 2 additional ternimal tabs
       -in one CD into Server folder, and type npm run dev
       -in the other CD into client folder, and type npm start
