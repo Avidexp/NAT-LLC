@@ -76,6 +76,7 @@ class Dashboard extends Component {
       // localStorage.getItem("USER_EMAIL") -- gets the variable USER_EMAIL from localStorage
     let Email = localStorage.getItem('userEmail');
   return (      
+      <div>
       <div className='dashboard'>
         <nav className="navbar navbar-default">
         <div className="container-fluid">
@@ -113,8 +114,11 @@ class Dashboard extends Component {
           </ul> */}
 
           <h4>Welcome to the dashboard, you have logged in correctly :) </h4>
+          <form action="/messenger">
+          <button type="submit"> Go to your messenger</button>
+          </form>
           {
-            Email ? `<p>Your email is, ${Email}` : <p>Something went wrong getting your email </p>
+            Email ? `Your email is, ${Email}` : <p>Something went wrong getting your email </p>
           }
           
         </div>
@@ -129,7 +133,73 @@ class Dashboard extends Component {
             </form> */}
           <button onClick={this.onBackClick.bind(this)} className='btn btn-default'>Back</button>
         </div>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
       </div>
+      <footer className='page-footer center-on-small-only'>
+          <div className='container-fluid'>
+            <div className='row'>
+              <div className='col-lg-3 col-md-6 ml-auto'>
+                <h5 className='title mb-3'><strong>About Us</strong></h5>
+                <p>Designed by greatness.</p>
+                <p>Designed for greatness.</p>
+              </div>
+
+              
+              <hr className='w-100 clearfix d-sm-none' />
+              <div className='col-lg-2 col-md-6 ml-auto'>
+                <h5 className='title mb-3'><strong>First column</strong></h5>
+                <ul>
+                  <li className='nav-item'><a href='/'>Home</a></li>
+                  <li className='nav-item'><a href='/signup'>Sign Up</a></li>
+                  <li className='nav-item'><a href='/signin'>Sign In</a></li>
+                  <li className='nav-item'><a href='/signout'>Sign Out</a></li>
+                </ul>
+              </div>
+
+
+              <div className='col-lg-2 col-md-6 ml-auto'>
+                <h5 className='title mb-3'><strong>Second column</strong></h5>
+                <ul>
+                <li className='nav-item'><a href='/'>Home</a></li>
+                <li className='nav-item'><a href='/signup'>Sign Up</a></li>
+                <li className='nav-item'><a href='/signin'>Sign In</a></li>
+                <li className='nav-item'><a href='/signout'>Sign Out</a></li>
+              </ul>
+              </div>
+
+
+              <div className='col-lg-2 col-md-6 ml-auto'>
+                <h5 className='title mb-3'><strong>Third column</strong></h5>
+                <ul>
+                <li className='nav-item'><a href='/'>Home</a></li>
+                <li className='nav-item'><a href='/signup'>Sign Up</a></li>
+                <li className='nav-item'><a href='/signin'>Sign In</a></li>
+                <li className='nav-item'><a href='/signout'>Sign Out</a></li>
+              </ul>
+              </div>
+            </div>
+          </div>
+          <div className='footer-copyright'>
+            <div className='container-fluid'>
+            © 2017 Copyright: <a href='#'> Dylan.me </a>
+            </div>
+          </div>
+        </footer>
+        </div>
     );
   }
 }

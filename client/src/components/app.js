@@ -12,7 +12,7 @@ import '../index.css';
 // import Tripbuild from './tripbuild';
 // import Tripresults from './tripresults';
 // import Places from './places';
-
+import MessageApp from '../components/MessageApp';
 export default class App extends Component {
   render () {
     return (
@@ -22,6 +22,7 @@ export default class App extends Component {
           <Route path='/signin' component={Signin} />
           <Route path='/signup' component={Signup} />
           <Route path='/signout' component={Signout} />
+          <Route path='/messenger' component={MessageApp} />
           <Route path='/dashboard' component={Dashboard} />
           <Route path='/feature' component={RequireAuth(Feature)} />
         </div>
