@@ -3,21 +3,24 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import axios from 'axios';
-// import Tripbuild from './tripbuild';
-
+import Footer from './Footer';
+import DatePicker from 'react-bootstrap-date-picker';
 const ROOT_URL = 'http://localhost:8080/api/v1';
 
-let saved_itineraries = [];
+
 
 class Dashboard extends Component {
   constructor(props) {
     super(props);
-
-    // this.state = {
-    //   //Insert What you want for the state 
-    //     // This component is also linked to your global redux state defined in reducers, and actions
-    // };
+    
   }    
+  state = {
+    startValue: '',
+    startFormattedValue: '',
+    endValue: '',
+    endFormattedValue: ''
+  }
+  
   //How to redirect pages + go back EX: this.context.router.history.push('/directory');
   static contextTypes = {
     router: PropTypes.object
@@ -70,6 +73,56 @@ class Dashboard extends Component {
       ];
     }
   };
+
+  handleFormSubmit(){
+    const title = this.refs.title.value;
+    const serial = this.refs.serial.value;
+    const condition = this.refs.condition.value;
+    const desc = this.refs.description.value;
+const start = this.state.startFormattedValue;
+
+const end = this.state.endFormattedValue;
+console.log("DATES: ");
+console.log(start);
+console.log(end);
+let Email = localStorage.getItem('userEmail');
+    axios.post(`${ROOT_URL}/listEquipment`, {
+      Email,
+      title,
+      serial,
+      condition,
+      desc,
+      start,
+      end
+    })
+    .then(response => {
+      console.log("Equipment saved successfully");
+
+    })
+    .catch(()=> {
+      console.log("Equipment Save Failed");
+    })
+    
+  }
+
+  startHandleChange(value, formattedValue){
+    console.log(value);
+    console.log(formattedValue);
+    this.setState({
+      startValue: value,
+      startFormattedValue: formattedValue
+    });
+    console.log(this.state);
+  }
+  endHandleChange(value, formattedValue){
+    console.log(value);
+    console.log(formattedValue);
+    this.setState({
+      endValue: value,
+      endFormattedValue: formattedValue
+    });
+    console.log(this.state);
+  }
   render() {
     //Grabs the users email from localStorage
       // localStorage.setItem("USER_EMAIL", email) -- to set a variable email to the local storage variable of USER_EMAIL
@@ -85,13 +138,13 @@ class Dashboard extends Component {
               <span className="sr-only">Toggle navigation</span>
               <span className="icon-bar"></span>
             </button>
-            <a className="navbar-brand" href="#">
-            <strong>App Name Here</strong></a>
+            <a className="navbar-brand" href="/">
+            <strong>Need A Tool</strong></a>
           </div>
           <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul className="nav navbar-nav">
               <li><a href="/">Home </a></li>
-              <li><a href="#">Tab 2</a></li>
+              <li><a href="/Equipment">Equipment</a></li>
               <li><a href="#">Tab 3</a></li>
 
             </ul>
@@ -103,15 +156,7 @@ class Dashboard extends Component {
       </nav>
         <h3>Dashboard</h3>
         <div className='col-md-6'>
-          {/* <h4><strong>Your Previously saved Itineraries</strong></h4>
-          <ul className="itineraries">
-            {saved_itineraries.map(saved_itins => 
-            <li key={saved_itins.place_id}>
-              <span className="badge">{saved_itins.type}</span>
-              {saved_itins.name} {saved_itins.price_level} {saved_itins.rating} {saved_itins.vicinity} 
-            </li>
-            )}
-          </ul> */}
+
 
           <h4>Welcome to the dashboard, you have logged in correctly :) </h4>
           <form action="/messenger">
@@ -123,14 +168,57 @@ class Dashboard extends Component {
           
         </div>
         <div className='col-md-3'>
-          <h2>Dylan Jackson is so cool haha</h2>
           
-          {/* I left his here to show how to have a button to redirect someone somewhere. I had it to go to the places page, but you can use this to link any other page in your site here
-              <form action='/places'>
-            <button className='btn btn-default' type='submit'>
-              Click to Manually Search Places
+        <form>
+            <fieldset className="form-group">
+              <label>Title
+              <input
+                ref="title"
+                className="form-control"
+                
+              />
+              </label>
+              <label>Serial Number
+              <input
+                ref="serial"
+                className="form-control"
+              />
+              </label>
+            </fieldset>
+            <fieldset className="form-group">
+              <label>Condition</label>
+              <input
+                ref="condition"
+                className="form-control"
+              />
+            </fieldset>
+            <fieldset className="form-group">
+              <label>Description</label>
+              <input type="textarea"
+                ref="description"
+                className="form-control"
+                
+              />
+            </fieldset>
+
+            <fieldset className="form-group">
+              <label>Start Date</label>
+              <DatePicker id="start-datepicker"ref="startValue" value={this.state.startValue} onChange={this.startHandleChange.bind(this)} />
+
+            </fieldset>
+            <fieldset className="form-group">
+              <label>End Date</label>
+              <DatePicker id="end-datepicker" ref="endValue" value={this.state.endValue}  onChange={this.endHandleChange.bind(this)} />
+
+            </fieldset>
+            <button
+              onClick={this.handleFormSubmit.bind(this)}
+              className="btn btn-primary"
+            >
+              Add Equipment
             </button>
-            </form> */}
+          </form>
+
           <button onClick={this.onBackClick.bind(this)} className='btn btn-default'>Back</button>
         </div>
         <br/>
@@ -149,56 +237,26 @@ class Dashboard extends Component {
         <br/>
         <br/>
       </div>
-      <footer className='page-footer center-on-small-only'>
-          <div className='container-fluid'>
-            <div className='row'>
-              <div className='col-lg-3 col-md-6 ml-auto'>
-                <h5 className='title mb-3'><strong>About Us</strong></h5>
-                <p>Designed by greatness.</p>
-                <p>Designed for greatness.</p>
-              </div>
-
-              
-              <hr className='w-100 clearfix d-sm-none' />
-              <div className='col-lg-2 col-md-6 ml-auto'>
-                <h5 className='title mb-3'><strong>First column</strong></h5>
-                <ul>
-                  <li className='nav-item'><a href='/'>Home</a></li>
-                  <li className='nav-item'><a href='/signup'>Sign Up</a></li>
-                  <li className='nav-item'><a href='/signin'>Sign In</a></li>
-                  <li className='nav-item'><a href='/signout'>Sign Out</a></li>
-                </ul>
-              </div>
-
-
-              <div className='col-lg-2 col-md-6 ml-auto'>
-                <h5 className='title mb-3'><strong>Second column</strong></h5>
-                <ul>
-                <li className='nav-item'><a href='/'>Home</a></li>
-                <li className='nav-item'><a href='/signup'>Sign Up</a></li>
-                <li className='nav-item'><a href='/signin'>Sign In</a></li>
-                <li className='nav-item'><a href='/signout'>Sign Out</a></li>
-              </ul>
-              </div>
-
-
-              <div className='col-lg-2 col-md-6 ml-auto'>
-                <h5 className='title mb-3'><strong>Third column</strong></h5>
-                <ul>
-                <li className='nav-item'><a href='/'>Home</a></li>
-                <li className='nav-item'><a href='/signup'>Sign Up</a></li>
-                <li className='nav-item'><a href='/signin'>Sign In</a></li>
-                <li className='nav-item'><a href='/signout'>Sign Out</a></li>
-              </ul>
-              </div>
-            </div>
-          </div>
-          <div className='footer-copyright'>
-            <div className='container-fluid'>
-            © 2017 Copyright: <a href='#'> Dylan.me </a>
-            </div>
-          </div>
-        </footer>
+      <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+      <br/>
+      <br/>
+      <br/>
+      <Footer />
         </div>
     );
   }

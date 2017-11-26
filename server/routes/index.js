@@ -1,7 +1,7 @@
 const Authentication = require('../controllers/authentication');
 // const Itinerary = require('../controllers/itinerary');
 // const Cities = require('../controllers/cities_lng_lat');
-
+const profileController = require('../controllers/profileController');
 const passportService = require('../services/passport');
 const passport = require('passport');
 
@@ -14,9 +14,7 @@ module.exports = function (app) {
   });
   app.post('/api/v1/signin', requireSignin, Authentication.signin);
   app.post('/api/v1/signup', Authentication.signup);
-  // app.post('/api/v1/cities_lng_lat', Cities.getLngLat);
-      // --V What we did to save itineraries on user profiles 
-  // app.post('/api/v1/save_itin', Itinerary.saveItinerary);
-    // --V What we did to get itineraries saved on user profiles 
-  // app.post('/api/v1/get_itin', Itinerary.readItinerary);
+  app.post("/api/v1/listEquipment", profileController.listEquipment);
+  app.post("/api/v1/fetchEquipment", profileController.fetchEquipment);
+  
 };

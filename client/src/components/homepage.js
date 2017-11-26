@@ -53,13 +53,13 @@ class Homepage extends Component {
                 <span className="sr-only">Toggle navigation</span>
                 <span className="icon-bar"></span>
               </button>
-              <a className="navbar-brand" href="#">
-              <strong>App Name Here</strong></a>
+              <a className="navbar-brand" href="/">
+              <strong>Need A Tool</strong></a>
             </div>
             <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul className="nav navbar-nav">
                 <li className="active"><a href="/">Home <span className="sr-only">(current)</span></a></li>
-                <li><a href="#">Tab 2</a></li>
+                <li><a href="/Equipment">Equipment</a></li>
                 <li><a href="#">Tab 3</a></li>
 
               </ul>
@@ -72,56 +72,7 @@ class Homepage extends Component {
 
 
 
-        <footer className='page-footer center-on-small-only'>
-          <div className='container-fluid'>
-            <div className='row'>
-              <div className='col-lg-3 col-md-6 ml-auto'>
-                <h5 className='title mb-3'><strong>About Us</strong></h5>
-                <p>Designed by greatness.</p>
-                <p>Designed for greatness.</p>
-              </div>
-
-              
-              <hr className='w-100 clearfix d-sm-none' />
-              <div className='col-lg-2 col-md-6 ml-auto'>
-                <h5 className='title mb-3'><strong>First column</strong></h5>
-                <ul>
-                  <li className='nav-item'><a href='/'>Home</a></li>
-                  <li className='nav-item'><a href='/signup'>Sign Up</a></li>
-                  <li className='nav-item'><a href='/signin'>Sign In</a></li>
-                  <li className='nav-item'><a href='/signout'>Sign Out</a></li>
-                </ul>
-              </div>
-
-
-              <div className='col-lg-2 col-md-6 ml-auto'>
-                <h5 className='title mb-3'><strong>Second column</strong></h5>
-                <ul>
-                <li className='nav-item'><a href='/'>Home</a></li>
-                <li className='nav-item'><a href='/signup'>Sign Up</a></li>
-                <li className='nav-item'><a href='/signin'>Sign In</a></li>
-                <li className='nav-item'><a href='/signout'>Sign Out</a></li>
-              </ul>
-              </div>
-
-
-              <div className='col-lg-2 col-md-6 ml-auto'>
-                <h5 className='title mb-3'><strong>Third column</strong></h5>
-                <ul>
-                <li className='nav-item'><a href='/'>Home</a></li>
-                <li className='nav-item'><a href='/signup'>Sign Up</a></li>
-                <li className='nav-item'><a href='/signin'>Sign In</a></li>
-                <li className='nav-item'><a href='/signout'>Sign Out</a></li>
-              </ul>
-              </div>
-            </div>
-          </div>
-          <div className='footer-copyright'>
-            <div className='container-fluid'>
-            © 2017 Copyright: <a href='#'> Dylan.me </a>
-            </div>
-          </div>
-        </footer>
+        
     </div>
     );
   }
